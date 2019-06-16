@@ -7,6 +7,8 @@ function makeGraphs(error, salaryData) {
     
     show_gender_balance(ndx);
     
+    dc.renderAll();
+    
 }
 
 function show_gender_balance(ndx) {
@@ -20,6 +22,10 @@ function show_gender_balance(ndx) {
     .dimension(dim)
     .group(group)
     .transitionDuration(500)
-    .
+    .x(d3.scale.ordinal())
+    .xUnits(dc.units.ordinal)
+    .elasticY(true)
+    .xAxisLabel("Gender")
+    .yAxis().ticks(20);
     
 }
