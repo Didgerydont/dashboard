@@ -105,7 +105,7 @@ function show_rank_distribution(ndx) {
     var dim = ndx.dimension(dc.pluck('sex'));
     
     var profByGender = dim.group().reduce(
-        function (p,v){
+        function (p, v){
             p.total++;
             if(v.rank == "Prof"){
                 p.match++;
@@ -114,7 +114,7 @@ function show_rank_distribution(ndx) {
             
         },
         
-        function (p,v){
+        function (p, v){
             p.total--;
             if(v.rank == "Prof"){
                 p.match--;
@@ -122,7 +122,7 @@ function show_rank_distribution(ndx) {
         },
         
         function (){
-            return{total:0, match:0};
+            return{total: 0, match: 0};
         }
         
     );
@@ -153,7 +153,7 @@ function show_rank_distribution(ndx) {
         );
     }
     
-    var profByGender = rankByGender(dim, "prof");
+    var profByGender = rankByGender(dim, "Prof");
     var asstProfByGender = rankByGender(dim, "asstProf");
     var assocProfByGender = rankByGender(dim, "assocProf");
        
