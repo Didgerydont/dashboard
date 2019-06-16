@@ -5,6 +5,10 @@ queue()
 function makeGraphs(error, salaryData) {
     var ndx = crossfilter(salaryData);
     
+    salaryData.forEach(function(d){
+        d.salary = parseInt(d.salary);
+    })
+    
     show_discipline_selector(ndx);
     show_gender_balance(ndx);
     show_average_salaries(ndx);
@@ -83,7 +87,7 @@ function show_average_salaries(ndx) {
         .dimension(dim)
         .group(averageSalaryByGender)
         .valueAccessor(function(d){
-            return d.value.average;
+            return d.value.average.toFixed(2);
         })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
