@@ -76,4 +76,19 @@ function show_average_salaries(ndx) {
    
    
    dc.barChart("#average-salary")
+   
+        .width(400)
+        .height(300)
+        .margins({top: 20, right: 50, bottom: 30, left: 50})
+        .dimension(dim)
+        .group(averageSalaryByGender)
+        .valueAccessor(function(d){
+            return d.value.average;
+        })
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .elasticY(true)
+        .xAxisLabel("Gender")
+        .yAxis().ticks(4);
 }
